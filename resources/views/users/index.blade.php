@@ -100,7 +100,7 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>IMO</th>
-                                                <th>Keterangan</th>                                  
+                                                <th>Keterangan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -108,12 +108,12 @@
                                             @foreach ($imo as $u)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $u->IMO }}</td>
-                                                    <td>{{ $u->description }}</td>                                        
+                                                    <td>{{ $u->imo }}</td>
+                                                    <td>{{ $u->description }}</td>
                                                     <td>
                                                         <button type="button" class="btn btn-primary mb-2">Details</button>
                                                     </td>
-                                                </tr>                                                                                                 
+                                                </tr>
                                             @endforeach
                                     </table>
                                 </div>
