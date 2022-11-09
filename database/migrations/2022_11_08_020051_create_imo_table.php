@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('imo', function (Blueprint $table) {
+        Schema::create('imos', function (Blueprint $table) {
             $table->id();
-            $table->string('imo');
+            $table->string('no_imo');
             $table->string('description');
             $table->timestamps();
         });

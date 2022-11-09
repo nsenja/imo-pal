@@ -1,4 +1,4 @@
-@extends('users.master')
+@extends('layout.master')
 @section('content')
     <div class="event-sidebar dz-scroll active" id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -105,13 +105,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($imo as $u)
+                                            @foreach ($imos as $u)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $u->imo }}</td>
+                                                    <td>{{ $u->no_imo }}</td>
                                                     <td>{{ $u->description }}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary mb-2">Details</button>
+                                                        <a href="{{ route('users.detail',$u->id) }}" class="btn btn-primary">Details</a>
+                                                        {{--  <button type="button" class="btn btn-primary mb-2">Details</button>  --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

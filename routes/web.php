@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [ImoController::class, 'index'])->name('users.index');
+Route::get('/details/{id}', [ImoController::class, 'show'])->name('users.detail');

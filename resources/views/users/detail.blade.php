@@ -103,58 +103,22 @@
                                                     <!-- Tab panes -->
                                                     <div class="tab-content">
                                                         <div role="tabpanel" class="tab-pane fade show active"
-                                                            id="first">
-                                                            {{--  @foreach ($imo as $i)  --}}
-                                                            <script type="text/javascript">
-                                                                var imo = "9619969";
-                                                            </script>
-                                                            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
-                                                           
-                                                            {{--  <img class="img-fluid" src="{{asset('/assets/images/product/1.jpg')}}" alt="">  --}}
+                                                            id="first">                                                                                                                                                                                             
+                                                            <script type="text/javascript">                                                              
+                                                                var imo ="996893"; 
+                                                            </script>                                                    
+                                                            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>                                                                                                                 
                                                         </div> 
-                                                        {{--  @endforeach  --}}
+                 
                                                     </div>
                                                 </div>
-                                                <!--Tab slider End-->
+                                                <!--Tab slider End-->                                            
                                                 <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
                                                     <div class="product-detail-content">
                                                         <!--Product details-->
                                                         <div class="new-arrival-content pr">
-                                                            <h4>No. IMO 9619969 </h4>
-                                                            {{--  <div class="comment-review star-rating">
-                                                                <ul>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-                                                                    <li><i class="fa fa-star"></i></li>
-
-                                                                </ul>
-                                                                <span class="review-text">(34 reviews) / </span><a
-                                                                    class="product-review" href="#"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#reviewModal">Write a review?</a>
-                                                            </div>  --}}
-                                                            {{--  <div class="d-table mb-2">
-                                                                <p class="price float-start d-block">$325.00</p>
-                                                            </div>
-                                                            <p>Availability: <span class="item"> In stock <i
-                                                                        class="fa fa-shopping-basket"></i></span>
-                                                            </p>
-                                                            <p>Product code: <span class="item">0405689</span> </p>
-                                                            <p>Brand: <span class="item">Lee</span></p>
-                                                            <p>Product tags:&nbsp;&nbsp;
-                                                                <span class="badge badge-success light">bags</span>
-                                                                <span class="badge badge-success light">clothes</span>
-                                                                <span class="badge badge-success light">shoes</span>
-                                                                <span class="badge badge-success light">dresses</span>
-                                                            </p>  --}}
-                                                            <p class="text-content">There are many variations of passages
-                                                                of Lorem Ipsum available, but the majority have suffered
-                                                                alteration in some form, by injected humour, or randomised
-                                                                words which don't look even slightly believable.
-                                                                If you are going to use a passage of Lorem Ipsum, you need
-                                                                to be sure there isn't anything embarrassing.</p>
+                                                            <h4>{{$imos->no_imo}}</h4>                                                                                            
+                                                            <p {{$imos->description}}</p>
                                                         </div>
                                                     </div>
                                                 </div>

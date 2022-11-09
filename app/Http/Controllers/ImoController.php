@@ -16,9 +16,9 @@ class ImoController extends Controller
     public function index()
     {
         // $imo = Imo::all();
-        $imo = DB::table('imo')->select('imo','description')->get();
+        $imos = DB::table('imos')->orderBy('id')->get();        
         // $data = Imo::latest()->paginate(10);
-        return view('users.index')->with('imo',$imo);
+        return view('users.index')->with('imos',$imos);
     }
 
     /**
@@ -38,9 +38,10 @@ class ImoController extends Controller
      * @param  \App\Models\Imo  $imo
      * @return \Illuminate\Http\Response
      */
-    public function show(Imo $imo)
+    public function show(Imo $imos,$id)
     {
-        //
+        $imos = Imo::where('id', $id)->first();
+        return view('users.detail',compact('imos'));
     }
 
     /**
