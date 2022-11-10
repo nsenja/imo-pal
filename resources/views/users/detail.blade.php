@@ -103,22 +103,22 @@
                                                     <!-- Tab panes -->
                                                     <div class="tab-content">
                                                         <div role="tabpanel" class="tab-pane fade show active"
-                                                            id="first">                                                                                                                                                                                             
-                                                            <script type="text/javascript">                                                              
-                                                                var imo ="996893"; 
-                                                            </script>                                                    
-                                                            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>                                                                                                                 
-                                                        </div> 
-                 
+                                                            id="first">
+                                                            <script type="text/javascript">
+                                                                var imo = "{{ $imos->no_imo }}";
+                                                            </script>
+                                                            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
+                                                        </div>
+
                                                     </div>
                                                 </div>
-                                                <!--Tab slider End-->                                            
+                                                <!--Tab slider End-->
                                                 <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
                                                     <div class="product-detail-content">
                                                         <!--Product details-->
                                                         <div class="new-arrival-content pr">
-                                                            <h4>{{$imos->no_imo}}</h4>                                                                                            
-                                                            <p {{$imos->description}}</p>
+                                                            <h4>{{ $imos->no_imo }}</h4>
+                                                            <p {{ $imos->description }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,8 +181,8 @@
 
 
                     <!--**********************************
-         Footer end
-        ***********************************-->
+             Footer end
+            ***********************************-->
                 </div>
 
                 <script src="public/assets/vendor/global/global.min.js"></script>
@@ -244,9 +244,10 @@
                     });
                 </script>
 
+
                 <!--**********************************
-                Main wrapper end
-            ***********************************-->
+                    Main wrapper end
+                ***********************************-->
                 </body>
 
             </div>
