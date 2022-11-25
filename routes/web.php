@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [ImoController::class, 'index'])->name('users.index');
+Route::post('/users/create', [ImoController::class, 'store'])->name('users.store');
 Route::get('/details/{id}', [ImoController::class, 'show'])->name('users.detail');

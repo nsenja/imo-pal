@@ -16,10 +16,19 @@ class ImoController extends Controller
     public function index()
     {
         // $imo = Imo::all();
-        $imos = DB::table('imos')->orderBy('id')->get();        
+        $imos = DB::table('imos')->orderBy('id')->get();   
+        $data = Imo::latest()->paginate(10);     
         // $data = Imo::latest()->paginate(10);
-        return view('users.index')->with('imos',$imos);
+        return view('users.index',compact('imos','data'));
     }
+
+
+
+    public function create()
+    {
+        return view('users.create', ['imos' => Imo::index()]);
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -29,7 +38,17 @@ class ImoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_barang'=>'required',
+            'no_part'=>'required',
+            'desc' => 'required',
+            'asal_kirim'=>'required',
+            'ekspedisi'=>'required',
+            'status_kirim'=>'required',
+        ]);
+        $input = $request->all();
+        Imo::create($input);
+        return redirect()->route('users.index')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -41,7 +60,9 @@ class ImoController extends Controller
     public function show(Imo $imos,$id)
     {
         $imos = Imo::where('id', $id)->first();
-        return view('users.detail',compact('imos'));
+        $data = Imo::latest()->paginate(10);     
+        // $data = Imo::latest()->paginate(10);
+        return view('users.detail',compact('imos','data'));
     }
 
     /**

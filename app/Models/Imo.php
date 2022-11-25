@@ -9,8 +9,12 @@ class Imo extends Model
 {
     use HasFactory;
     protected $fillable = [
-       'imo',
-       'description'
+       'id_barang',
+       'no_part',
+       'desc',
+       'asal_kirim',
+       'ekspedisi',
+       'status_kirim'
     ];
 
     public static function index()

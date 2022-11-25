@@ -8,23 +8,23 @@
         </div>
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
             <div class="card-header border-0 pb-0">
-                <h4 class="text-black">Pengunjung Terkini</h4>
+                <h4 class="text-black">Pengiriman Terkini</h4>
             </div>
-
-            <div class="card-body">
-                <div class="media mb-5 align-items-center event-list">
-                    <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-                        <h2 class="flaticon-381-user-7"></h2>
-                    </div>
-                    <div class="media-body px-0">
-                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black"></a></h6>
-                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                            <li></li>
-                        </ul>
+            @foreach ($data as $g)
+                <div class="card-body">
+                    <div class="media align-items-center event-list">
+                        <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
+                            <h2 class="flaticon-381-user-7"></h2>
+                        </div>
+                        <div class="media-body px-0">
+                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black"></a>{{ $g->id_barang }}</h6>
+                            <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                                <li>{{ $g->no_part }}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            @endforeach
         </div>
 
     </div>
@@ -37,7 +37,7 @@
             <div class="row">
                 <!--Total Visitor-->
                 <div class="row">
-                    <div class="col-xl-4 col-sm-4">
+                    {{--  <div class="col-xl-4 col-sm-4">
                         <div class="widget-stat card">
                             <div class="card-body">
                                 <div class="media align-items-center">
@@ -81,12 +81,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
                     <!--Total Visitor-->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">IMO</h4>
+                                <h4 class="card-title">Detail Track</h4>
                             </div>
                             {{--  <div class="card-body">
                                 <a href="#" class="btn btn-primary"><span><i class="fa fa-plus"></i>
@@ -99,26 +99,42 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-xl-12">
+                                                <div class="col-lg-5">
                                                     <!-- Tab panes -->
                                                     <div class="tab-content">
-                                                        <div role="tabpanel" class="tab-pane fade show active"
-                                                            id="first">
+                                                        <div role="tabpanel" class="tab-pane fade show active" id="first">                                                                                                                  
                                                             <script type="text/javascript">
-                                                                var imo = "{{ $imos->no_imo }}";
+                                                                // Map appearance
+                                                                var width="100%";         // width in pixels or percentage
+                                                                var height="450";         // height in pixels
+                                                                var names=true;           // always show ship names (defaults to false)
+                                                            
+                                                                // Single ship tracking
+                                                                var show_track=true;      // display track line (last 24 hours)
+                                                            </script>                                                     
+                                                            <script type="text/javascript">
+                                                                var imo = "{{ $imos->no_part }}";
                                                             </script>
                                                             <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                                 <!--Tab slider End-->
-                                                <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
+                                                
+                                                <div class="col-lg-6  col-md-6 ">
                                                     <div class="product-detail-content">
                                                         <!--Product details-->
                                                         <div class="new-arrival-content pr">
-                                                            <h4>{{ $imos->no_imo }}</h4>
-                                                            <p {{ $imos->description }}</p>
+                                                          
+                                                            <h4>ID Barang : {{ $imos->id_barang }}</h4>
+                                                            <h4>Nomor Part : {{ $imos->no_part }}</h4>
+                                                                                                                       
+                                                            <td>{{ $imos->desc }}</td>
+                                                            <td>{{ $imos->asal_kirim }}</td>
+                                                            <td>{{ $imos->ekspedisi }}</td>
+                                                            <td>{{ $imos->status_kirim }}</td>
+                                                            </tr>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,7 +144,7 @@
                                     </div>
                                 </div>
                                 <!-- review -->
-                                <div class="modal fade" id="reviewModal">
+                                {{--  <div class="modal fade" id="reviewModal">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -174,29 +190,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>  --}}
                             </div>
                         </div>
                     </div>
 
 
                     <!--**********************************
-             Footer end
-            ***********************************-->
+                 Footer end
+                ***********************************-->
                 </div>
 
-                <script src="public/assets/vendor/global/global.min.js"></script>
-                <script src="public/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-                <script src="public/assets/vendor/bootstrap-datetimepicker/js/moment.js"></script>
-                <script src="public/assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-
-                <script src="public/assets/vendor/star-rating/jquery.star-rating-svg.js"></script>
-                <script src="public/assets/vendor/owl-carousel/owl.carousel.js"></script>
-
-                <script src="public/assets/js/custom.js"></script>
-                <script src="public/assets/js/deznav-init.js"></script>
-                <script src="public/assets/js/demo.js"></script>
-                <script src="public/assets/js/styleSwitcher.js"></script>
                 <script>
                     function cardsCenter() {
 
@@ -246,8 +250,8 @@
 
 
                 <!--**********************************
-                    Main wrapper end
-                ***********************************-->
+                        Main wrapper end
+                    ***********************************-->
                 </body>
 
             </div>
