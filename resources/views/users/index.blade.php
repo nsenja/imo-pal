@@ -37,7 +37,52 @@
             <div class="row">
                 <!--Total Visitor-->
                 <div class="row">
-                   
+                    <div class="row">
+                        <div class="col-xl-4 col-sm-4">
+                            <div class="widget-stat card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="me-4">
+                                            <i class="flaticon-381-user-7"></i>
+                                        </span>
+                                        <div class="media-body ms-1">
+                                            <p class="mb-2">Pengunjung Hari Ini</p>
+                                            <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-sm-4">
+                            <div class="widget-stat card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="me-4">
+                                            <i class="flaticon-381-user-7"></i>
+                                        </span>
+                                        <div class="media-body ms-1">
+                                            <p class="mb-2">Pengunjung Minggu Ini</p>
+                                            <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-sm-4">
+                            <div class="widget-stat card">
+                                <div class="card-body">
+                                    <div class="media align-items-center">
+                                        <span class="me-4">
+                                            <i class="flaticon-381-user-7"></i>
+                                        </span>
+                                        <div class="media-body ms-1">
+                                            <p class="mb-2">Pengunjung Bulan Ini</p>
+                                            <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     <!--Button-->
                     <div class="col-12">
@@ -61,7 +106,7 @@
                                                 <h5 class="modal-title">Input data baru</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                 </button>
-                                            </div>                                 
+                                            </div>
                                             <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body">
@@ -91,21 +136,21 @@
                                                             placeholder="Masukkan ekspedisi">
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label">Status Kirim</label>                                                                                                                                                        
+                                                        <label class="form-label">Status Kirim</label>
                                                         <select id="status_kirim" type="text" name="status_kirim" class="form-control">
                                                             <option value="1">1-On The Way</option>
                                                             <option value="2">2-Arrived</option>
                                                         </select>
                                                     </div>
-                                
-                                                     
+
+
                                                 {{--  <button type="button" class="btn btn-danger light"
                                                     data-bs-dismiss="modal">Close</button>  --}}
                                                     <div class="">
-                                                        <button type="submit" class="btn btn-primary">Save</button>        
+                                                        <button type="submit" class="btn btn-primary">Save</button>
                                                     </div>
                                                 {{--  <button type="submit" class="btn btn-primary">Save</button>  --}}
-                                         
+
                                             </form>
                                             {{--  <div class="modal-footer">
                                                 <button type="button" class="btn btn-danger light"
@@ -116,6 +161,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -129,7 +175,7 @@
                                                 <th>Asal Kirim</th>
                                                 <th>Ekspedisi</th>
                                                 <th>Status Kirim</th>
-                                                <th>Action</th>
+                                                <th style="text-align:center;width:30%">Peta </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -143,9 +189,27 @@
                                                     <td>{{ $u->ekspedisi }}</td>
                                                     <td>{{ $u->status_kirim }}</td>
                                                     <td>
-                                                        <a href="{{ route('users.detail', $u->id) }}"
-                                                            class="btn btn-primary">Details</a>                                                      
+                                                        {{-- <div role="tabpanel" class="tab-pane fade show active" id="first"> --}}
+                                                            <script type="text/javascript">
+                                                                // Map appearance
+                                                                var width="100%";         // width in pixels or percentage
+                                                                var height="150";         // height in pixels
+                                                                var names=true;           // always show ship names (defaults to false)
+
+                                                                // Single ship tracking
+                                                                var show_track=true;      // display track line (last 24 hours)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                var imo = "{{ $u->no_part }}";
+                                                            </script>
+                                                            <script type="text/javascript" src="https://www.vesselfinder.com/aismap.js"></script>
+                                                        </div>
                                                     </td>
+                                                    {{-- <td>
+                                                        <a href="{{ route('users.detail', $u->id) }}"
+                                                            class="btn btn-primary">Details</a>
+                                                    </td> --}}
+
                                                 </tr>
                                             @endforeach
                                     </table>
@@ -158,4 +222,50 @@
         </div>
     </div>
     </div>
+    <script>
+        function cardsCenter() {
+
+            /*  testimonial one function by = owl.carousel.js */
+
+
+
+            jQuery('.card-slider').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                autoplay: true,
+                //center:true,
+                slideSpeed: 3000,
+                paginationSpeed: 3000,
+                dots: false,
+                navText: ['', ''],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    576: {
+                        items: 3
+                    },
+                    800: {
+                        items: 3
+                    },
+                    991: {
+                        items: 4
+                    },
+                    1200: {
+                        items: 5
+                    },
+                    1600: {
+                        items: 6
+                    }
+                }
+            })
+        }
+
+        jQuery(window).on('load', function() {
+            setTimeout(function() {
+                cardsCenter();
+            }, 1000);
+        });
+    </script>
 @endsection

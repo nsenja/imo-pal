@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Imo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ImoController extends Controller
 {
@@ -16,10 +17,15 @@ class ImoController extends Controller
     public function index()
     {
         // $imo = Imo::all();
-        $imos = DB::table('imos')->orderBy('id')->get();   
-        $data = Imo::latest()->paginate(10);     
+        $imos = DB::table('imos')->orderBy('id')->get();
+        $data = Imo::latest()->paginate(10);
+        $current_date = Imo::whereDate('created_at', Carbon::today())->get(['id_barang', 'created_at']);
+        $current_week = Imo::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $current_month = Imo::whereMonth('created_at', date('m'))
+        ->whereYear('created_at', date('Y'))
+        ->get(['id_barang', 'created_at']);
         // $data = Imo::latest()->paginate(10);
-        return view('users.index',compact('imos','data'));
+        return view('users.index',compact('imos','data', 'current_date', 'current_week', 'current_month'));
     }
 
 
@@ -60,7 +66,7 @@ class ImoController extends Controller
     public function show(Imo $imos,$id)
     {
         $imos = Imo::where('id', $id)->first();
-        $data = Imo::latest()->paginate(10);     
+        $data = Imo::latest()->paginate(10);
         // $data = Imo::latest()->paginate(10);
         return view('users.detail',compact('imos','data'));
     }
