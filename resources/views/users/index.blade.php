@@ -93,15 +93,18 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Status Kirim</label>                                                                                                                                                        
                                                         <select id="status_kirim" type="text" name="status_kirim" class="form-control">
-                                                            <option value="1">On The Way</option>
-                                                            <option value="2">Arrived</option>
+                                                            <option value="1">1-On The Way</option>
+                                                            <option value="2">2-Arrived</option>
                                                         </select>
                                                     </div>
                                 
                                                      
-                                                <button type="button" class="btn btn-danger light"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                {{--  <button type="button" class="btn btn-danger light"
+                                                    data-bs-dismiss="modal">Close</button>  --}}
+                                                    <div class="">
+                                                        <button type="submit" class="btn btn-primary">Save</button>        
+                                                    </div>
+                                                {{--  <button type="submit" class="btn btn-primary">Save</button>  --}}
                                          
                                             </form>
                                             {{--  <div class="modal-footer">

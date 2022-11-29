@@ -124,11 +124,9 @@
                                                 <div class="col-lg-6  col-md-6 ">
                                                     <div class="product-detail-content">
                                                         <!--Product details-->
-                                                        <div class="new-arrival-content pr">
-                                                          
+                                                        <div class="new-arrival-content pr">                                                          
                                                             <h4>ID Barang : {{ $imos->id_barang }}</h4>
-                                                            <h4>Nomor Part : {{ $imos->no_part }}</h4>
-                                                                                                                       
+                                                            <h4>Nomor Part : {{ $imos->no_part }}</h4>                                                                                                                       
                                                             <td>{{ $imos->desc }}</td>
                                                             <td>{{ $imos->asal_kirim }}</td>
                                                             <td>{{ $imos->ekspedisi }}</td>
